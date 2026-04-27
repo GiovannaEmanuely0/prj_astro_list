@@ -1,0 +1,81 @@
+
+.secao_cadastro{
+    text-align: center;
+    padding: 10px;
+}
+.title_cadastro{
+    color: #181a2c;
+}
+.form_cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.groupInput {
+  position: relative;
+  margin: 20px 0;
+}
+
+.groupInput input {
+  padding: 12px 30px;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #3b82f6;
+  color: #181a2c;
+}
+.groupInput input:focus{
+    border: none;
+    border-bottom: 2px solid #7c3aed;
+}
+
+.groupInput label {
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  color: #777;
+  padding: 0 5px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+/* Quando clica ou digita */
+.groupInput input:focus + label,
+.groupInput input:valid + label {
+  top: -8px;
+  font-size: 18px;
+  background: linear-gradient(#7c3aed, #3b82f6);
+  border-radius: 2px;
+  color: #f4efef;
+  font-weight: 700;
+}
+.botao{
+   padding: 12px 25px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+
+    background:
+        linear-gradient(#7c3aed, #3b82f6) padding-box,
+        linear-gradient(90deg, #33bad2, #f63ba2) border-box;
+
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+
+    margin-top: 1%;
+}
+.botao:hover{
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.7);
+}
+.link a{
+    text-decoration: none;
+    color: #181a2c;
+}
+.erro_email{
+    color: rgb(190, 17, 17);
+}
+
+
