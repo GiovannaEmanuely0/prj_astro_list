@@ -4,7 +4,7 @@
     <div class="sidebar_top">
         <div class="sidebar_logo">
             <img src="{{ asset('img/logoAstrolist/logoFuture-removebg-preview.png') }}" class="logo">
-            <h1>Astrolist</h1>
+            <h1>Astrotask</h1>
         </div>
 
         <div class="sidebar_menu">
