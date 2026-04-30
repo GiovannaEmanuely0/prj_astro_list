@@ -45,8 +45,8 @@
                                 <button type="submit">Enviar</button>
                             </form>
                             <div class="text_perfil">
-                                <h1>Explorador</h1>
-                                <h2>email</h2>
+                                <h1>{{$usuario->nome}}</h1>
+                                <h2>{{$usuario->email}}</h2>
                                 <h2>descricao</h2>
                             </div>
                         </div>
