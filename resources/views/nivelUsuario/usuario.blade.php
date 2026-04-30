@@ -47,37 +47,7 @@
                             <div class="text_perfil">
                                 <h1>{{$usuario->nome}}</h1>
                                 <h2>{{$usuario->email}}</h2>
-                                <h2>descricao</h2>
-                            </div>
-                        </div>
-                        <div class="div_perfil2">
-                            <div>
-                                <icon>oi</icon>
-                                <div>
-                                    <h1>4569</h1>
-                                    <p>xp?</p>
-                                </div>
-                            </div>
-                            <div>
-                                <icon>oi</icon>
-                                <div>
-                                    <h1>4569</h1>
-                                    <p>xp?</p>
-                                </div>
-                            </div>
-                            <div>
-                                <icon>oi</icon>
-                                <div>
-                                    <h1>4569</h1>
-                                    <p>xp?</p>
-                                </div>
-                            </div>
-                            <div>
-                                <icon>oi</icon>
-                                <div>
-                                    <h1>4569</h1>
-                                    <p>xp?</p>
-                                </div>
+                                <p>Seja bem vindo!!! <br/>Gerencie e edite aqui seus dados e suas tarefas.</p>
                             </div>
                         </div>
                     </div>
@@ -134,27 +104,33 @@
                         <div class="ativ_row">
                             <div>
                                 <i data-lucide="snowflake"></i>
-                                <h2>Concluiu 10 tarefas</h2>
+                                <h1>?</h1>
+                                <p>tarefas concluídas</p>
                             </div>
                             <div>
                                 <i data-lucide="snowflake"></i>
-                                <h2>Concluiu 10 tarefas</h2>
+                                <h1>?</h1>
+                                <p>tarefas em andamento</p>
                             </div>
                             <div>
                                 <i data-lucide="snowflake"></i>
-                                <h2>Concluiu 10 tarefas</h2>
+                                <h1>?</h1>
+                                <p>tarefas feitas</p>
                             </div>
                             <div>
                                 <i data-lucide="snowflake"></i>
-                                <h2>Concluiu 10 tarefas</h2>
+                                <h1>?</h1>
+                                <p>tarefas concluídas</p>
                             </div>
                             <div>
                                 <i data-lucide="snowflake"></i>
-                                <h2>Concluiu 10 tarefas</h2>
+                                <h1>?</h1>
+                                <p>tarefas concluídas</p>
                             </div>
                             <div>
                                 <i data-lucide="snowflake"></i>
-                                <h2>Concluiu 10 tarefas</h2>
+                                <h1>?</h1>
+                                <p>tarefas concluídas</p>
                             </div>
                             
                         </div>
