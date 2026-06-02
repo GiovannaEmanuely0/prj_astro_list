@@ -98,7 +98,7 @@ class tarefaController extends Controller
     public function updateApi(Request $request, string $id)
     {
         $validarDados = $request->validate([
-            'titulo' => 'required|min:10',
+            'titulo' => 'required|min:5',
             'descricao' => 'required|max:150',
             'categoria' => 'nullable|max:15',
             'status' => 'nullable|string',
@@ -123,5 +123,12 @@ class tarefaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function destroyApi(string $id)
+    {
+        tarefaModel::where('id',$id)->delete();
+        return response()->json([
+            'message'=>"Tarefa Excluída",'code'=>200
+        ]);
     }
 }
