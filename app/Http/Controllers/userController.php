@@ -138,4 +138,11 @@ class userController extends Controller
     {
         //
     }
+    public function destroyApi(string $id)
+    {
+        userModel::where('id', $id)->delete();
+        return response()->json([
+            'message'=>"Usuário excluído",'code'=>200
+        ]);
+    }
 }
