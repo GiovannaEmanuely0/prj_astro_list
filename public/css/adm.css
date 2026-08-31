@@ -1,0 +1,275 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+    background:
+        linear-gradient(rgba(11,15,28,0.85), rgba(5,7,13,0.95)),
+        url('https://plus.unsplash.com/premium_photo-1666232903265-ba0419aa3ef7?q=80&w=687&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: #E2E8F0;
+}
+
+.viewPrincipal{
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.secaoPrincipal{
+    display: flex;
+    gap: 20px;
+    min-height: calc(100vh - 40px);
+}
+
+.divPrincipal{
+    flex: 1;
+
+    background:
+        linear-gradient(rgba(24,30,50,0.85), rgba(5,7,13,0.95));
+
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.08);
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.divNomeAdm{
+    padding: 20px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(8,24,72,0.95),
+        rgba(36,37,42,0.85)
+    );
+
+    border-radius: 15px;
+}
+
+.divNomeAdm h1{
+    color: #7c3aed;
+    font-size: 32px;
+}
+
+.divSecundaria{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.divSecundaria h1{
+    font-size: 24px;
+    color: #3b82f6;
+}
+
+/* CONFIGURAÇÕES */
+
+.configAdm{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 15px;
+
+    background: rgba(255,255,255,0.04);
+
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.divIcone{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inputAdm{
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: white;
+}
+
+.inputAdm:focus{
+    outline: none;
+    border-color: #7c3aed;
+}
+
+select{
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* LISTA DE USUÁRIOS */
+
+.divUsuario{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.usuario{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+
+    background: rgba(255,255,255,0.04);
+
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+
+    transition: .3s;
+}
+
+.usuario:hover{
+    transform: translateY(-2px);
+
+    border-color: rgba(124,58,237,0.5);
+
+    box-shadow: 0 0 15px rgba(124,58,237,0.15);
+}
+
+.del{
+    color: #ef4444;
+    cursor: pointer;
+}
+
+.del:hover{
+    transform: scale(1.1);
+}
+
+/* GRÁFICOS */
+
+.divGrafico{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.grafico{
+    min-height: 200px;
+
+    background: rgba(255,255,255,0.04);
+
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.05);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #94A3B8;
+}
+
+.graficoEspecial{
+    min-height: 200px;
+
+    grid-column: span 2;
+
+    background: rgba(255,255,255,0.04);
+
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* CARDS */
+
+.divCards{
+    display: flex;
+    gap: 15px;
+}
+
+.card{
+    flex: 1;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    color: white;
+
+    transition: .3s;
+}
+
+.card:hover{
+    transform: translateY(-3px);
+}
+
+.card p{
+    font-size: 14px;
+    opacity: .8;
+}
+
+.card h1{
+    margin-top: 10px;
+    font-size: 36px;
+    color: white;
+}
+
+.alta{
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #9333ea
+    );
+}
+
+.medio{
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+}
+
+.baixo{
+    background: linear-gradient(
+        135deg,
+        #ec4899,
+        #f472b6
+    );
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px){
+
+    .configAdm{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .divGrafico{
+        grid-template-columns: 1fr;
+    }
+
+    .graficoEspecial{
+        grid-column: span 1;
+    }
+
+    .divCards{
+        flex-direction: column;
+    }
+
+    .usuario{
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}

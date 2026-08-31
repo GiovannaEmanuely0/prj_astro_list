@@ -1,0 +1,524 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-deep: #0a0e1a;
+    --bg-panel: #10162a;
+    --bg-card: #131a2c;
+    --bg-card-hover: #171f36;
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-glow: rgba(124, 108, 255, 0.35);
+
+    --text-primary: #eef1f8;
+    --text-secondary: #9aa4bf;
+    --text-muted: #6b7591;
+
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-gradient: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+
+    --alta: #f97362;
+    --media: #f5b942;
+    --baixa: #4ade80;
+
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+
+    --shadow-glow: 0 0 0 1px var(--border-subtle), 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background: radial-gradient(ellipse at top right, #131c38 0%, var(--bg-deep) 55%);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.viewPrincipal {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   DASHBOARD — coluna principal
+   ========================================================================== */
+
+.dashboard {
+    padding: 40px 48px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* ---- Cabeçalho ---- */
+
+.dashboard_inicial {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.dashboard_inicial h1 {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard_inicial > div:first-child > p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+.dashboard_inicial > div:first-child > h1:last-child {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin-top: 18px;
+    letter-spacing: 0.02em;
+}
+
+.dashboard_inicial [data-lucide="rocket"] {
+    width: 22px;
+    height: 22px;
+    color: var(--accent-purple);
+}
+
+.dashboard_inicial > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dashboard_inicial input[type="text"]#busca {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    padding: 12px 20px;
+    color: var(--text-primary);
+    font-size: 14px;
+    width: 240px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard_inicial input[type="text"]#busca::placeholder {
+    color: var(--text-muted);
+}
+
+.dashboard_inicial input[type="text"]#busca:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.dashboard_inicial button[type="button"] {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.dashboard_inicial button[type="button"]:hover {
+    color: var(--text-primary);
+    border-color: var(--border-glow);
+    transform: translateY(-1px);
+}
+
+.dashboard_inicial button[type="button"]:last-child {
+    width: auto;
+    height: auto;
+    padding: 13px 22px;
+    border-radius: 999px;
+    background: var(--accent-gradient);
+    border: none;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 10px 25px -8px rgba(139, 92, 246, 0.55);
+}
+
+.dashboard_inicial button[type="button"]:last-child:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+/* ---- Seção de tarefas ---- */
+
+.dashboard_secaotarefas {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: var(--shadow-glow);
+}
+
+/* ---- Barra de filtros ---- */
+
+.filtro_tarefas {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 16px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+}
+
+.filtro_tarefas > input,
+.filtro_tarefas div > input {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color-scheme: dark;
+}
+
+.filtro_tarefas > input#busca {
+    flex: 1 1 220px;
+    min-width: 200px;
+}
+
+.filtro_tarefas > input#busca::placeholder {
+    color: var(--text-muted);
+}
+
+.filtro_tarefas > input:focus,
+.filtro_tarefas div > input:focus {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+/* bloco "entre datas" (os dois inputs juntos) */
+.filtro_tarefas > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-deep);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 4px 10px;
+}
+
+.filtro_tarefas > div input {
+    border: none;
+    background: transparent;
+    padding: 6px 4px;
+}
+
+.filtro_tarefas > div input:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.filtro_tarefas > div::after {
+    content: none;
+}
+
+/* insere um "até" visual entre as duas datas do bloco, via ordem dos elementos */
+.filtro_tarefas > div input:first-child {
+    position: relative;
+}
+
+/* último input avulso (data específica) */
+.filtro_tarefas > input[type="date"] {
+    min-width: 150px;
+}
+
+.filtro_tarefas input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.6) sepia(1) saturate(4) hue-rotate(200deg);
+    cursor: pointer;
+}
+
+/* ---- Formulário de nova tarefa ---- */
+
+#formNovaTarefa {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glow);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    animation: slideDown 0.25s ease;
+}
+
+#formNovaTarefa.hidden {
+    display: none;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#formNovaTarefa form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+#formNovaTarefa input[type="text"],
+#formNovaTarefa input[type="date"] {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    outline: none;
+    color-scheme: dark;
+    width: 100%;
+}
+
+#formNovaTarefa input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+#formNovaTarefa label {
+    grid-column: 1 / -1;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+#formNovaTarefa input[type="radio"] {
+    accent-color: var(--accent-purple);
+    margin-right: 4px;
+}
+
+#formNovaTarefa button[type="submit"] {
+    grid-column: 1 / -1;
+    background: var(--accent-gradient);
+    border: none;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    margin-top: 6px;
+    transition: filter 0.2s ease;
+}
+
+#formNovaTarefa button[type="submit"]:hover {
+    filter: brightness(1.08);
+}
+
+/* ---- Lista de tarefas ---- */
+
+.dashboard_secaotarefas > div:last-child ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tarefa-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--accent-blue);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.tarefa-item:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-1px);
+}
+
+.tarefa-item.prioridade-alta { border-left-color: var(--alta); }
+.tarefa-item.prioridade-média { border-left-color: var(--media); }
+.tarefa-item.prioridade-baixa { border-left-color: var(--baixa); }
+
+.tarefa-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.tarefa-info strong {
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.tarefa-info p {
+    color: var(--text-secondary);
+    font-size: 13.5px;
+}
+
+.tarefa-categoria,
+.tarefa-status,
+.tarefa-prioridade {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(139, 92, 246, 0.12);
+    color: #c7b8ff;
+    white-space: nowrap;
+}
+
+.tarefa-status {
+    background: rgba(59, 130, 246, 0.12);
+    color: #a9c8ff;
+}
+
+.tarefa-prioridade {
+    background: rgba(249, 115, 98, 0.12);
+    color: #ffb3a6;
+}
+
+.tarefa-datas {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.tarefa-acoes button {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tarefa-acoes button:hover {
+    color: var(--alta);
+    border-color: var(--alta);
+}
+
+.dashboard_secaotarefas > div:last-child ul > li:only-child {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 32px 0;
+    border: 1px dashed var(--border-subtle);
+    border-radius: var(--radius-md);
+    list-style: none;
+}
+
+.filtro_tarefas select#categoriaFiltro {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    padding: 10px 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.filtro_tarefas button[type="submit"] {
+    background: var(--accent-gradient);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.filtro_tarefas .limpar-filtro {
+    color: var(--text-muted);
+    font-size: 13px;
+    text-decoration: none;
+    padding: 10px 6px;
+}
+
+.filtro_tarefas .limpar-filtro:hover {
+    color: var(--text-primary);
+}
+
+.filtro_tarefas select#statusFiltro {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    padding: 10px 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 960px) {
+    .viewPrincipal {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard {
+        padding: 24px;
+    }
+
+    #formNovaTarefa form {
+        grid-template-columns: 1fr;
+    }
+
+    .tarefa-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 560px) {
+    .dashboard_inicial input[type="text"]#busca {
+        width: 100%;
+    }
+
+    .filtro_tarefas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
