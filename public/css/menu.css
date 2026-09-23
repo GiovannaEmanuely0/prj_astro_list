@@ -68,6 +68,12 @@
     font-size: 12px;
 }
 
+.menu_item a{
+    color: white;
+    text-decoration: none;
+    padding-right: 73px;
+}
+
 .menu_item.active {
     background: linear-gradient(90deg, #7c3aed, #3b82f6);
     color: white;

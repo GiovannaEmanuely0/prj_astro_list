@@ -59,35 +59,34 @@ class tarefaController extends Controller
     {
         $query = tarefaModel::query();
 
-        if ($request->filled('busca')) {
-            $query->where('titulo', 'like', '%' . $request->busca . '%');
+        if ($request->busca) {
+            $query->where(function ($q) use ($request) {
+                $q->where('titulo', 'like', '%' . $request->busca . '%')
+                ->orWhere('descricao', 'like', '%' . $request->busca . '%');
+            });
         }
 
-        if ($request->filled('categoria')) {
+        if ($request->categoria) {
             $query->where('categoria', $request->categoria);
         }
 
-        if ($request->filled('status')) {
+        if ($request->status) {
             $query->where('status', $request->status);
         }
 
-        if ($request->filled('dataInicioFiltro') && $request->filled('dataFimFiltro')) {
-            $query->whereBetween('dataInicio', [
-                $request->dataInicioFiltro,
-                $request->dataFimFiltro,
-            ]);
+        if ($request->prioridade) {
+            $query->where('prioridade', $request->prioridade);
         }
 
-        $tarefas = $query->orderBy('dataInicio')->get();
+        $tarefas = $query->get();
 
-        $categoriasDisponiveis = tarefaModel::select('categoria')
+        $categorias = tarefaModel::select('categoria')
             ->distinct()
-            ->orderBy('categoria')
             ->pluck('categoria');
 
         return response()->json([
             'tarefas' => $tarefas,
-            'categorias' => $categoriasDisponiveis
+            'categorias' => $categorias
         ]);
     }
 
@@ -203,11 +202,11 @@ class tarefaController extends Controller
         return redirect()->route('tarefas.index')->with('success', 'Tarefa removida.');
     }
 
-    public function destroyApi(string $id)
+    public function destroyApi($id)
     {
-        tarefaModel::where('id',$id)->delete();
         return response()->json([
-            'message'=>"Tarefa Excluída",'code'=>200
+            'id_recebido' => $id,
+            'mensagem' => 'Chegou no destroyApi'
         ]);
     }
 

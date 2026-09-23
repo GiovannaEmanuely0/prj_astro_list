@@ -2,25 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable; // ✅ isso, não use Illuminate\Database\Eloquent\Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class userModel extends Authenticatable   // ✅ extends Authenticatable, não Model
+class userModel extends Authenticatable 
 {
     use Notifiable;
 
-    protected $table = 'usuario'; // se o nome da tabela não for "user_models"
+    protected $table = 'usuario';
 
     protected $fillable = [
-        'id',
-        'nome',
-        'email',
-        'senha',
+        'id','nome','email','senha',
     ];
 
-    protected $hidden = [
-        'senha',
-    ];
+    protected $hidden = ['senha',];
 
     public function tarefas()
     {

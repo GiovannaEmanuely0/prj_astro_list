@@ -19,7 +19,6 @@
                     <h1>Hoje - {{ \Carbon\Carbon::now()->format('d/m/Y') }}</h1>
                 </div>
                 <div>
-                    <input type="text" name="busca" id="busca" placeholder="Buscar Tarefa...">
                     <button type="button">
                         <i data-lucide="bell"></i>
                     </button>
@@ -57,7 +56,7 @@
 
                     <select name="categoria" id="categoriaFiltro">
                         <option value="">Todas as categorias</option>
-                        @foreach($categoriasDisponiveis as $cat)
+                        @foreach($categoriasDisponiveis ?? [] as $cat)
                             <option value="{{ $cat }}" {{ request('categoria') == $cat ? 'selected' : '' }}>
                                 {{ $cat }}
                             </option>

@@ -1,6 +1,5 @@
 <div class="sidebar">
 
-    <!-- TOPO -->
     <div class="sidebar_top">
     <div class="sidebar_logo">
        <a href="{{ route('tarefas.index') }}">
@@ -25,10 +24,13 @@
             <span>Concluído</span>
             <p>12</p>
         </div>
+        <div class="menu_item">
+            <i data-lucide="chart-pie"></i>
+            <a href="{{ route('graficos.index') }}"> <span> Gráficos </span> </a>
+        </div>
     </div>
 </div>
 
-<!-- MEIO -->
 <div class="sidebar_middle">
     <div class="ti_cate">
         <h1>Categorias</h1>
