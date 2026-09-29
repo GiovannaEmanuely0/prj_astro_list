@@ -115,7 +115,7 @@ class tarefaController extends Controller
             'dataInicio'   => 'required|date',
             'dataTermino'  => 'required|date|after_or_equal:dataInicio',
             'prioridade'   => 'required|in:Alta,Média,Baixa',
-            'status'       => 'required|in:Em Andamento,Concluída,Pendente',
+            'status'       => 'required|in:Pendente,Em Progresso,Concluída',
             'categoria'    => 'required|string|max:100',
         ]);
 
