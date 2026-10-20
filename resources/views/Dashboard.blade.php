@@ -78,30 +78,103 @@
                 </form>
 
                 <div id="formNovaTarefa" class="hidden">
+                    <div class="form-cabecalho">
+                        <h2>Nova tarefa</h2>
+                        <p>Campos marcados com <span class="obrigatorio">*</span> são obrigatórios.</p>
+                    </div>
+
                     <form action="{{ route('tarefas.store') }}" method="post">
                         @csrf
-                        <input type="text" name="titulo" placeholder="Título" required>
-                        <input type="text" name="descricao" placeholder="Descrição" required>
-                        <input type="date" name="dataInicio" required>
-                        <input type="date" name="dataTermino" required>
 
-                        <label>Prioridade:</label>
-                        <input type="radio" name="prioridade" value="Baixa" required> Alta
-                        <input type="radio" name="prioridade" value="Média" required> Média
-                        <input type="radio" name="prioridade" value="Alta" required> Baixa
+                        <fieldset class="grupo">
+                            <legend>Informações</legend>
 
-                        <label>Status:</label>
-                        <input type="radio" name="status" value="Pendente" required> Pendente
-                        <input type="radio" name="status" value="Em Progresso" required> Em Progresso
-                        <input type="radio" name="status" value="Concluída" required> Concluída
+                            <label class="campo">
+                                <span class="campo-label">Título <span class="obrigatorio">*</span></span>
+                                <input type="text" name="titulo" placeholder="Ex.: Entregar relatório mensal" value="{{ old('titulo') }}" required>
+                                @error('titulo')
+                                    <span class="erro">{{ $message }}</span>
+                                @enderror
+                            </label>
 
-                        <input type="text" name="categoria" placeholder="Categoria" required>
+                            <label class="campo">
+                                <span class="campo-label">Descrição <span class="obrigatorio">*</span></span>
+                                <input type="text" name="descricao" placeholder="Ex.: Reunir os dados e enviar ao gestor" value="{{ old('descricao') }}" required>
+                                @error('descricao')
+                                    <span class="erro">{{ $message }}</span>
+                                @enderror
+                            </label>
 
-                        <button type="submit">Cadastrar</button>
+                            <label class="campo">
+                                <span class="campo-label">Categoria <span class="obrigatorio">*</span></span>
+                                <input type="text" name="categoria" placeholder="Ex.: Trabalho, Estudos, Pessoal" value="{{ old('categoria') }}" required>
+                                @error('categoria')
+                                    <span class="erro">{{ $message }}</span>
+                                @enderror
+                            </label>
+                        </fieldset>
+
+                        <fieldset class="grupo grupo-datas">
+                            <legend>Prazo</legend>
+
+                            <label class="campo">
+                                <span class="campo-label">Data de início</span>
+                                <input type="date" name="dataInicio" value="{{ old('dataInicio') }}" required>
+                                @error('dataInicio')
+                                    <span class="erro">{{ $message }}</span>
+                                @enderror
+                            </label>
+
+                            <label class="campo">
+                                <span class="campo-label">Data de término</span>
+                                <input type="date" name="dataTermino" value="{{ old('dataTermino') }}" required>
+                                @error('dataTermino')
+                                    <span class="erro">{{ $message }}</span>
+                                @enderror
+                            </label>
+                        </fieldset>
+
+                        <fieldset class="grupo">
+                            <legend>Prioridade <span class="obrigatorio">*</span></legend>
+                            <div class="opcoes">
+                                <label class="opcao opcao-alta">
+                                    <input type="radio" name="prioridade" value="Alta" required>
+                                    <span>Alta</span>
+                                </label>
+                                <label class="opcao opcao-media">
+                                    <input type="radio" name="prioridade" value="Média" required>
+                                    <span>Média</span>
+                                </label>
+                                <label class="opcao opcao-baixa">
+                                    <input type="radio" name="prioridade" value="Baixa" required>
+                                    <span>Baixa</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="grupo">
+                            <legend>Status <span class="obrigatorio">*</span></legend>
+                            <div class="opcoes">
+                                <label class="opcao">
+                                    <input type="radio" name="status" value="Pendente" required>
+                                    <span>Pendente</span>
+                                </label>
+                                <label class="opcao">
+                                    <input type="radio" name="status" value="Em Progresso" required>
+                                    <span>Em Progresso</span>
+                                </label>
+                                <label class="opcao">
+                                    <input type="radio" name="status" value="Concluída" required>
+                                    <span>Concluída</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <button type="submit">Cadastrar tarefa</button>
                     </form>
 
                     @if(session('success'))
-                        <p style="color: green;">{{ session('success') }}</p>
+                        <p class="msg-sucesso">{{ session('success') }}</p>
                     @endif
                 </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\tarefaModel;
 use App\Models\UserModel;
+use App\Http\Requests\TarefaFormRequest;
 
 //Arquivos CSV
 use Illuminate\Support\Facades\DB;
@@ -107,17 +108,9 @@ class tarefaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(Request $request)
+    public function store(TarefaFormRequest $request)
     {
-        $validated = $request->validate([
-            'titulo'       => 'required|string|max:255',
-            'descricao'    => 'required|string',
-            'dataInicio'   => 'required|date',
-            'dataTermino'  => 'required|date|after_or_equal:dataInicio',
-            'prioridade'   => 'required|in:Alta,Média,Baixa',
-            'status'       => 'required|in:Em Andamento,Concluída,Pendente',
-            'categoria'    => 'required|string|max:100',
-        ]);
+        $validated = $request->validated();
 
         Auth::user()->tarefas()->create($validated);
 

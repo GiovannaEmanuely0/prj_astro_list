@@ -25,28 +25,6 @@
       Astrotask
     </div>
  
-    <div class="panel-visual" aria-hidden="true">
-      <div class="orbit-ring ring-2"></div>
-      <div class="orbit-ring ring-1"></div>
-      <div class="core-badge">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 17L10 4L12.5 9.5L21 3L15.5 13.5L21 21L11.5 16.5L3 17Z" fill="#fff"/>
-        </svg>
-      </div>
-      <div class="float-card card-1">
-        <div class="fc-title">Relatório semanal</div>
-        <span class="fc-tag">Em progresso</span>
-      </div>
-      <div class="float-card card-2">
-        <div class="fc-title">Cadastro atualizado</div>
-        <span class="fc-tag done">Concluída</span>
-      </div>
-    </div>
- 
-    <div class="panel-quote">
-      <p>"Desde que passei a usar o Astrotask, nenhum prazo passa despercebido."</p>
-      <div class="who">Penelope — usuária desde 2025</div>
-    </div>
   </div>
  
   <!-- RIGHT FORM PANEL -->
@@ -65,12 +43,20 @@
         </div>
         <div class="field">
           <label for="senha">Senha</label>
-          <input type="password" id="senha" name="password" placeholder="••••••••" required>
+          <input type="password" id="senha" name="password" placeholder="••••••••"  required>
         </div>
         <div class="row-between">
-          <!-- <a href="#">Esqueceu a senha?</a> -->
+          @error('senha')
+                <p>{{ $message }}</p>
+            @enderror
+          @error('email')
+                <p>{{ $message }}</p>
+            @enderror
         </div>
         <button class="btn-primary" type="submit">Entrar</button>
+        @if (session('success'))
+            <p>{{ session('success') }}</p>
+        @endif
       </form>
     </div>
   </div>

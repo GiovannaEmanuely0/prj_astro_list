@@ -8,7 +8,8 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\userModel;
-
+//request
+use App\Http\Requests\DeviceFormRequest;
 class userController extends Controller
 {
     /**
@@ -30,6 +31,10 @@ class userController extends Controller
         return $usuario;
     }
 
+    public function storeView(DeviceFormRequest $request){
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -46,13 +51,10 @@ class userController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    
+    public function store(DeviceFormRequest $request)
     {
-        $validated = $request->validate([
-            'nome'  => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'senha' => 'required|min:6',
-        ]);
+        $validated = $request->validated();
 
         $usuario = userModel::create([
             'nome'  => $validated['nome'],
@@ -65,6 +67,7 @@ class userController extends Controller
             'Cadastro realizado com sucesso! Faça login para continuar.'
         );
     }
+
 
 
     public function storeApi(Request $request){

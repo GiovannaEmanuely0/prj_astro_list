@@ -13,15 +13,15 @@
             @csrf
             <div class="groupInput">
                 <input type="text" name="nome" id="" required>
-                <label for="txNome">Nome</label>
+                <label for="txNome">Nome*</label>
             </div>
             <div class="groupInput">
                 <input type="email" name="email" id="" required>
-                <label for="txEmail">E-mail</label>
+                <label for="txEmail">E-mail*</label>
             </div>
             <div class="groupInput">
                 <input type="password" name="senha" id="" required>
-                <label for="txSenha">Senha</label>
+                <label for="txSenha">Senha*</label>
             </div>
             <div class="groupInput">
                 <input type="password" name="senha_confirmation" id="" required>

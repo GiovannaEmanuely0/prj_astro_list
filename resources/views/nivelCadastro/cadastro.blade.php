@@ -31,23 +31,31 @@
  
       <div class="divider">ou cadastre-se com e-mail</div>
  
-      <form action="/cadastrar" method="post">
+      <form action="{{ route('cadastrar') }}" method="POST">
         @csrf
         <div class="field">
-          <label for="nome">Nome completo</label>
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          <label for="nome">Nome completo*</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" value="{{ old('nome') }}" required>
+           @error('nome')
+                <p>{{ $message }}</p>
+            @enderror
         </div>
         <div class="field">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="voce@exemplo.com" required>
+          <label for="email">E-mail*</label>
+          <input type="email" id="email" name="email" placeholder="voce@exemplo.com" value="{{ old('email') }}" required>
+          @error('email')
+                <p>{{ $message }}</p>
+            @enderror
         </div>
         <div class="field">
-          <label for="senha">Senha</label>
+          <label for="senha">Senha*</label>
           <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+          @error('senha')
+                <p>{{ $message }}</p>
+            @enderror
           <div class="strength">
             <span class="on"></span><span class="on"></span><span></span><span></span>
           </div>
-          <div class="strength-label">Força da senha: média</div>
         </div>
  
         <button class="btn-primary" type="submit">Criar conta</button>
@@ -56,38 +64,8 @@
   </div>
  
   <div class="panel">
-    <h2>Tudo pronto em menos de um minuto.</h2>
-    <p>Ao criar sua conta, você já começa com três categorias organizadas e um painel pronto para receber suas primeiras tarefas.</p>
- 
-    <div class="perk-list">
-      <div class="perk">
-        <div class="perk-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>
-        </div>
-        <div class="perk-text">
-          <h3>Categorias prontas</h3>
-          <p>Trabalho, estudos e pessoal já configurados para você começar.</p>
-        </div>
-      </div>
-      <div class="perk">
-        <div class="perk-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>
-        </div>
-        <div class="perk-text">
-          <h3>Prazos com lembrete</h3>
-          <p>Cada tarefa pode ter um intervalo de execução acompanhado automaticamente.</p>
-        </div>
-      </div>
-      <div class="perk">
-        <div class="perk-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>
-        </div>
-        <div class="perk-text">
-          <h3>Sem cartão de crédito</h3>
-          <p>O plano gratuito cobre tudo que você precisa para começar hoje.</p>
-        </div>
-      </div>
-    </div>
+    
+    
   </div>
  
 </div>

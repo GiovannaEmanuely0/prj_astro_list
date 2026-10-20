@@ -26,22 +26,21 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/usuario/{id}', [userController::class, 'show'])->name('usuario.show');
 
-    // Route::post('/logout', [userController::class, 'logout'])->name('logout');
-
     Route::get('/graficos', [GraficoController::class, 'index'])->name('graficos.index');
 });
 
 //Rotas de Login e Logout.
+// Rotas de Login e Logout
 Route::get('/login', function () {return view('nivelLogin.login');})->name('login');
-Route::post('/fazerLogin','App\Http\Controllers\UserController@fazerLogin');
-Route::get('/logout','App\Http\Controllers\UserController@fazerLogOut');
+Route::post('/fazerLogin', 'App\Http\Controllers\UserController@fazerLogin');
+Route::post('/logout', 'App\Http\Controllers\UserController@fazerLogOut')->name('logout');
 
 Route::get('/admin', 'App\Http\Controllers\adminController@index');
 Route::get('/cadastrarAdmin', 'App\Http\Controllers\adminController@create');
 Route::post('/cadastrarAdmin', 'App\Http\Controllers\adminController@store');
 
 Route::get('/cadastrar', 'App\Http\Controllers\userController@create');
-Route::post('/cadastrar', 'App\Http\Controllers\userController@store');
+Route::post('/cadastrar', 'App\Http\Controllers\userController@store')->name('cadastrar');
 
 Route::get('/download-csv-usuario', 'App\Http\Controllers\adminController@download')->name('usuarios.csv');
 
